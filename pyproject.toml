@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pdsutils"
+version = "0.1.0"
+description = "Utility functions for ProteusDS post‑processing"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+  { name="Josh Jacoby", email="josh.jacoby@dsaocean.com" }
+]
+requires-python = ">=3.8"
+dependencies = [
+  "numpy",
+  "pandas"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+
