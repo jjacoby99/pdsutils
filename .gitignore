@@ -177,6 +177,7 @@ cython_debug/
 *.testlog
 *.suo
 *.sln
+*.bin
 DocumentLayout.backup.json
 DocumentLayout.json
 /.venv
