@@ -1,4 +1,4 @@
-﻿import warnings
+import warnings
 # ignore only the "delim_whitespace" FutureWarning from pandas parsers
 warnings.filterwarnings(
     "ignore",
