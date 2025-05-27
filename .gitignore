@@ -176,5 +176,6 @@ cython_debug/
 *.vsidx
 *.testlog
 *.suo
+*.sln
 
 /.venv
