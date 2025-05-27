@@ -41,6 +41,9 @@ def maximum_relative_motion(base_folder: str,
               "which": realization string indicating realization of max occurrence (eg "Case05, Realization003")
              }}
     """
+    if not (os.path.exists(base_folder) or os.path.isdir(base_folder)):
+        raise RuntimeError(f"Invalid base folder provided: {base_folder}")
+
     if axes is None:
         axes = ["x", "y", "z", "roll", "pitch", "yaw"]
 
@@ -107,7 +110,8 @@ def maximum_relative_motion(base_folder: str,
                                   "Results",
                                   rb,
                                   "position.dat")
-
+                if not (os.path.exists(fn) or os.path.isfile(fn)):
+                    raise RuntimeError(f"Failed to construct position.dat path for Case0{case}/Realization00{real}. Tried path: {fn}")
                 # first body: read time + [motions]
                 if i == 0:
                     usecols = [0] + [col_index[ax] for ax in axes]
