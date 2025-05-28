@@ -1,4 +1,5 @@
 from pdsutils.realization_utils import _determine_prefix
+import re
 
 def generate_file_list(base_folder_path: str, file_name: str, cases: int, reals: int):
     """Generates a list of files from each realization based on a base folder and a provided file name.
@@ -15,3 +16,19 @@ def generate_file_list(base_folder_path: str, file_name: str, cases: int, reals:
             file_list.append(case_folder_path + "\\" + real_prefix + str(real_num) + "\\" + file_name)
     
     return file_list
+
+def extract_suffix(name: str) -> int:
+    """
+    Searches the given string for a numeric suffix. If one does not exist, a ValueError is thrown.
+    If a numeric suffic is found, it is converted to an int and returned.
+
+    @params
+        name (str): string to check for suffix
+
+    @returns
+        int
+    """
+        m = re.search(r"(\d+)$", name)
+        if not m:
+            raise ValueError(f"Couldn't parse numeric suffix from '{name}'")
+        return int(m.group(1))
