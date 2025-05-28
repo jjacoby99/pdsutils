@@ -28,7 +28,7 @@ def extract_suffix(name: str) -> int:
     @returns
         int
     """
-        m = re.search(r"(\d+)$", name)
-        if not m:
-            raise ValueError(f"Couldn't parse numeric suffix from '{name}'")
-        return int(m.group(1))
+    m = re.search(r"(\d+)$", name)
+    if not m:
+        raise ValueError(f"Couldn't parse numeric suffix from '{name}'")
+    return int(m.group(1))
