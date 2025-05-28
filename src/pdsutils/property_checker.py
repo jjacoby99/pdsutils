@@ -26,7 +26,10 @@ def check_property(prop: str, expected_val, file_path_list: List[str], correct: 
     """
 
     for file_path in file_path_list:
-        update_property(prop, expected_val, file_path)
+        try:
+            update_property(prop, expected_val, file_path)
+        except Exception as e:
+            raise Exception(f"Exception caught updating property {prop} to {expected_val} in {file_path}.\nException: {str(e)}")
 
 def update_property(prop:str, expected_val, file_path: str):
     if not os.path.exists(file_path):
